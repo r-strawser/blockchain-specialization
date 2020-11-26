@@ -80,7 +80,15 @@ contract Auction {
         */
         
         // ** Start code here. 2 lines approximately. **/
-    
+		if (tokenDetails[msg.sender].remainingTokens < _count) {
+            revert();
+        }
+        if (tokenDetails[msg.sender].remainingTokens < 1){
+            revert();
+        }
+        if (_itemId > 2){
+            revert();
+        }
 
         //** End code here. **
         
@@ -88,7 +96,7 @@ contract Auction {
         Hint. "tokenDetails[msg.sender].remainingTokens" should be decremented by "_count". */
  
         // ** Start code here. 1 line approximately. **
-        uint balance=
+        uint balance= tokenDetails[msg.sender].remainingTokens - _count;
         //** End code here. **
         
         tokenDetails[msg.sender].remainingTokens=balance;
@@ -130,7 +138,7 @@ contract Auction {
             you need to assign the address of the person obtained above to winners[id] */
 
             // ** Start coding here *** 1 line approximately.
-            
+            winners[id] = bidders[winnerId].addr;
                     
             //** end code here*
                 
