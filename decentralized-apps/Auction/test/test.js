@@ -1,6 +1,3 @@
-const { notEqual } = require("assert");
-const { assert } = require("console");
-
 let Auction = artifacts.require("./Auction.sol");
 
 let auctionInstance;
@@ -33,6 +30,7 @@ contract('AuctionContract', function (accounts) {
     pass itemId=0, count=6 as arguments
     HINT:     To make a function call from account 1 use {from: accounts[1]} as an extra argument
     ***********/
+    /*<CODE HERE>*/
     return auctionInstance.bid(0, 6, {from: accounts[1]})
     .then(function (result) {
       /*
@@ -64,6 +62,7 @@ contract('AuctionContract', function (accounts) {
     /**********
     TASK 4: Call revealWinners from account 1
     ***********/
+     /*<CODE HERE>*/
      return auctionInstance.revealWinners({from: accounts[1]})
      .then(function (instance) {
        /*
@@ -94,44 +93,52 @@ contract('AuctionContract', function (accounts) {
     /**********
     TASK 7: Call register function from account 2
     ***********/
+    /*<CODE HERE>*/
     return auctionInstance.register({from: accounts[2]})
     .then(function(result) {
       /**********
       TASK 8: Call register function from account 3
       ***********/
+        /*<CODE HERE>*/
         return auctionInstance.register({from: accounts[3]})
     }).then(function() {
       /**********
       TASK 9: Call register function from account 4
       ***********/
+        /*<CODE HERE>*/
         return auctionInstance.register({from: accounts[4]})
     }).then(function() {
       /**********
       TASK 10: Call bid method from accounts[2] of Auction.sol using auctionInstance and
       pass itemId=0, count=5 as arguments
       ***********/
+        /*<CODE HERE>*/
         return auctionInstance.bid(0, 5, {from: accounts[2]})
     }).then(function() {
       /**********
       TASK 11: Call bid method from accounts[3] of Auction.sol using auctionInstance and
       pass itemId=1, count=5 as arguments
       ***********/
+        /*<CODE HERE>*/
         return auctionInstance.bid(1, 5, {from: accounts[3]})
     }).then(function() {
       /**********
       TASK 12: Call bid method from accounts[4] of Auction.sol using auctionInstance and
       pass itemId=2, count=5 as arguments
       ***********/
+        /*<CODE HERE>*/
         return auctionInstance.bid(2, 5, {from: accounts[4]})
     }).then(function() {
       /**********
       TASK 13: Call revealWinners function from accounts[0]
       ***********/
+        /*<CODE HERE>*/
         return auctionInstance.revealWinners({from: accounts[0]})
     }).then(function() {
       /**********
       TASK 14: call winners function from accounts[0] to get the winner of item id 0
       ***********/
+        /*<CODE HERE>*/
         return auctionInstance.winners(0, {from: accounts[0]})
     }).then(function(result) {
       /**********
@@ -145,6 +152,7 @@ contract('AuctionContract', function (accounts) {
       /**********
       TASK 16: call winners function from accounts[0] to get the winner of item id 1
       ***********/
+      /*<CODE HERE>*/
       return auctionInstance.winners(1, {from: accounts[0]})
     }).then(function(result) {
       /**********
@@ -158,6 +166,7 @@ contract('AuctionContract', function (accounts) {
       /**********
       TASK 18: Call winners function from account 3 to get the winner of item id 2
       ***********/
+      /*<CODE HERE>*/
       return auctionInstance.winners(2, {from: accounts[3]})
     }).then(function(result) {
       /**********
